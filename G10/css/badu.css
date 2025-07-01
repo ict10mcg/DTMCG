@@ -115,6 +115,23 @@ body {
     }
 }
 
+
+.btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background: rgba(255, 204, 0, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    color: #000;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
 /* Toggle Button */
 .toggle-btn {
     position: fixed;
