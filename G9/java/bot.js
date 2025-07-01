@@ -80,6 +80,10 @@ const teachers = {
   TUTS: { name: "H. L. D. P. Champika", subjects: "Tutorial Sciences", img: "Image/TUTS.png" },
   TUTH: { name: "M. V. H. D. Gunasekara", subjects: "Tutriols History", img: "Image/TUTH.png" },
   TUSI: { name: "S. T. Indrani", subjects: "Tutorials Sinhala", img: "Image/TUSI.png" },
-  LIOB: { name: "MRS. Library", subjects: "Library", img: "Image/LIOB.png" }
-
+  LIOB: { name: "MRS. Library", subjects: "Library", img: "Image/LIOB.png" },
+  
+MWCH: { name: "M.W.Chamila", subjects: "Health", img: "Image/MWCH.png" },
+KGSD: { name: "K.G.S.Darmarathna", subjects: "PTS", img: "Image/KGSD.png" }
+     
+  
 };
