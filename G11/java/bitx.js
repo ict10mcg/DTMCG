@@ -19,6 +19,88 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+// Global simulated time variables
+let simulatedIndex = 0;
+let simulatedTime = null;
+
+// Button-triggered function to switch to the next period time
+function switchToNextPeriod() {
+    if (simulatedIndex >= periodTimings.length) simulatedIndex = 0;
+
+    const startTime = periodTimings[simulatedIndex].start;
+    const [hour, minute] = startTime.split(":").map(Number);
+
+    const fakeNow = new Date();
+    fakeNow.setHours(hour);
+    fakeNow.setMinutes(minute);
+    fakeNow.setSeconds(0);
+    fakeNow.setMilliseconds(0);
+
+    simulatedTime = fakeNow;
+    simulatedIndex++;
+
+    updateClassData();
+}
+
+// Main function
+async function updateClassData() {
+    const now = simulatedTime || new Date();
+    const sriLankaTime = now.toLocaleString("en-US", { timeZone: "Asia/Colombo" });
+    const sriLankaDate = new Date(sriLankaTime);
+
+    const currentDay = sriLankaDate.toLocaleDateString("en-US", { weekday: "long" });
+    const currentTime = sriLankaDate.getHours() + ":" + sriLankaDate.getMinutes().toString().padStart(2, "0");
+
+    document.getElementById("Neth").textContent = currentTime;
+    document.getElementById("This").textContent = currentDay;
+
+    const teacherDataForDay = teacherDataByDay?.[currentDay] || {};
+    const reliefDataForDay = reliefData?.[currentDay] || {};
+
+    let currentPeriod = null;
+    periodTimings.forEach(period => {
+        if (currentTime >= period.start && currentTime < period.end) {
+            currentPeriod = period;
+        }
+    });
+
+    if (currentPeriod) {
+        document.getElementById("Rak").textContent = currentPeriod.id;
+        console.log(`Current period: ${currentPeriod.id}, Time: ${currentTime}`);
+
+        const classKeys = ['classA', 'classB', 'classC', 'classD', 'classE', 'classF'];
+        let optionalSubjects = new Set();
+
+        classKeys.forEach(classKey => {
+            const reliefTeacherId = reliefDataForDay[classKey]?.[currentPeriod.id];
+            const teacherId = reliefTeacherId || teacherDataForDay[classKey]?.[currentPeriod.id];
+            console.log(`${classKey} - ${currentPeriod.id}: ${teacherId}`);
+
+            if (teacherId && teacherId.startsWith("OPT")) {
+                optionalSubjects.add(teacherId);
+            }
+        });
+
+        if (currentPeriod.id === "period5") {
+            console.log("Interval period detected");
+            handleInterval();
+        } else if (optionalSubjects.size > 0) {
+            console.log(`Optional subjects detected: ${Array.from(optionalSubjects).join(", ")}`);
+            classKeys.forEach(classKey => {
+                handleClassPeriod(classKey, currentPeriod, teacherDataForDay, reliefDataForDay);
+            });
+            optionalSubjects.forEach(optSubj => {
+                handleOptionalSubjects(optSubj, null, currentPeriod.id);
+            });
+        } else {
+            classKeys.forEach(classKey => {
+                handleClassPeriod(classKey, currentPeriod, teacherDataForDay, reliefDataForDay);
+            });
+            handleOptionalSubjects(null, null, currentPeriod.id);
+        }
+    }
+}
+
 
 function handleClassPeriod(classKey, period, teacherDataForDay, reliefDataForDay) {
     const reliefTeacherId = reliefDataForDay[classKey]?.[period.id];
