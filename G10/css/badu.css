@@ -1,6 +1,6 @@
 :root {
-    --bg-light: url('bg.png');
-    --bg-dark: url('bg2.png');
+    --bg-light: url('Image/bg.png');
+    --bg-dark: url('Image/bg2.png');
     --bg-color-light: #f0f0f0;
     --bg-color-dark: rgba(15, 15, 15, 0.9);
     --text-light: #000;
