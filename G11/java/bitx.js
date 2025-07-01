@@ -98,7 +98,7 @@ async function updateClassData() {
         
         hideElementsByIds(classes);
         hideElementsByIds(opt);
-        showElementsByIds(interval,true);
+        showElementsByIds(interval);
             console.log("Interval period detected");
             
         } 
