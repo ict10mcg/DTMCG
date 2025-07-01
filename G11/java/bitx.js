@@ -17,89 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-/*let simulatedIndex = 0;
 
-function switchToNextPeriod() {
-    // Simulate time based on periodTimings
-    if (simulatedIndex >= periodTimings.length) simulatedIndex = 0;
-    
-    const startTime = periodTimings[simulatedIndex].start;
-    const [hour, minute] = startTime.split(":").map(Number);
 
-    // Create a fake date object with simulated time
-    const now = new Date();
-    now.setHours(hour, minute, 0, 0);
-
-    // Save simulated time for use in updateClassData
-    window.simulatedTime = now;
-    updateClassData();
-
-    simulatedIndex++;
-}
-*/
-async function updateClassData() {
-    const now = window.simulatedTime || new Date();
-    const sriLankaTime = now.toLocaleString("en-US", { timeZone: "Asia/Colombo" });
-    const sriLankaDate = new Date(sriLankaTime);
-
-    const currentDay = sriLankaDate.toLocaleDateString("en-US", { weekday: "long" });
-    const currentTime = sriLankaDate.getHours() + ":" + sriLankaDate.getMinutes().toString().padStart(2, "0");
-
-    document.getElementById("Neth").textContent = currentTime;
-    document.getElementById("This").textContent = currentDay;
-
-    const teacherDataForDay = teacherDataByDay?.[currentDay] || {};
-    const reliefDataForDay = reliefData?.[currentDay] || {};
-
-    let currentPeriod = null;
-    periodTimings.forEach(period => {
-        if (currentTime >= period.start && currentTime < period.end) {
-            currentPeriod = period;
-        }
-    });
-
-    if (currentPeriod) {
-        document.getElementById("Rak").textContent = currentPeriod.id;
-        console.log(`Current period: ${currentPeriod.id}, Time: ${currentTime}`);
-
-        const classKeys = ['classA', 'classB', 'classC', 'classD', 'classE', 'classF'];
-        let optionalSubject = null;
-
-        classKeys.forEach(classKey => {
-            const reliefTeacherId = reliefDataForDay[classKey]?.[currentPeriod.id];
-            const teacherId = reliefTeacherId || teacherDataForDay[classKey]?.[currentPeriod.id];
-            console.log(`${classKey} - ${currentPeriod.id}: ${teacherId}`);
-
-            if (teacherId && teacherId.startsWith("OPT")) {
-                optionalSubject = teacherId;
-            }
-        });
-    } else {
-        document.getElementById("Rak").textContent = "Unknown";
-    }
-    }
-        // Handle the period based on what we found
-        if (currentPeriod.id === "period5") {
-            console.log("Interval period detected");
-            handleInterval();
-        } else if (optionalSubject) {
-            console.log(`Optional subject detected: ${optionalSubject}`);
-            // First handle all regular classes
-            classKeys.forEach(classKey => {
-                handleClassPeriod(classKey, currentPeriod, teacherDataForDay, reliefDataForDay);
-            });
-            // Then handle the optional subjects (this will hide/show appropriate classes)
-            handleOptionalSubjects(optionalSubject, null, currentPeriod.id);
-        } else {
-            // Regular period - handle each class individually
-            classKeys.forEach(classKey => {
-                handleClassPeriod(classKey, currentPeriod, teacherDataForDay, reliefDataForDay);
-            });
-            // Make sure optional subjects are hidden in regular periods
-            handleOptionalSubjects(null, null, currentPeriod.id);
-        }
-    }
-}
 
 function handleClassPeriod(classKey, period, teacherDataForDay, reliefDataForDay) {
     const reliefTeacherId = reliefDataForDay[classKey]?.[period.id];
