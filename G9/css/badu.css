@@ -1,0 +1,157 @@
+:root {
+    --bg-light: url('bg.png');
+    --bg-dark: url('bg2.png');
+    --bg-color-light: #f0f0f0;
+    --bg-color-dark: rgba(15, 15, 15, 0.9);
+    --text-light: #000;
+    --text-dark: #fff;
+    --card-light: rgba(255, 255, 255, 0.8);
+    --card-dark: rgba(30, 30, 30, 0.8);
+}
+
+body {
+    background: var(--bg-light) no-repeat center center fixed;
+    background-size: cover;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background-color: var(--bg-color-light);
+    padding: 20px;
+    box-sizing: border-box;
+    color: var(--text-light);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Dark mode styles */
+.dark-mode {
+    background: var(--bg-dark) no-repeat center center fixed;
+    background-size: cover; /* Added this line to ensure consistent sizing */
+    background-color: var(--bg-color-dark);
+    color: var(--text-dark);
+}
+
+.square, .opt {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    opacity: 0; /* Initial state for fade-in effect */
+    animation: fadeIn 1s ease-out forwards; /* Animation call */
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+    text-align: center;
+    font-size: clamp(14px, 1.2vw, 18px);
+}
+
+.dark-mode .square, .dark-mode .opt {
+    background: var(--card-dark);
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+.square:hover, .opt:hover {
+    transform: scale(1);
+}
+
+.square img, .opt img {
+    border-radius: 10px;
+    width: 130px;
+    height: auto;
+    object-fit: cover;
+}
+
+.square h3, .opt h3 {
+    margin: 10px 0 0;
+    font-size: clamp(16px, 1.5vw, 22px);
+}
+
+.square p, .opt p {
+    font-size: clamp(12px, 1vw, 16px);
+    color: #555;
+}
+
+.dark-mode .square p, .dark-mode .opt p {
+    color: #bbb;
+}
+
+.hide {
+    display: none;
+}
+
+/* Tablet-specific styling */
+@media (max-width: 1024px) {
+    body {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .square, .opt {
+        max-width: 400px;
+    }
+}
+
+/* Mobile-specific styling */
+@media (max-width: 768px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+    .square, .opt {
+        width: 90%;
+        max-width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .square, .opt {
+        padding: 15px;
+    }
+}
+
+/* Toggle Button */
+.toggle-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background: rgba(255, 204, 0, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    color: #000;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.dark-mode .toggle-btn {
+    background: rgba(50, 50, 50, 0.6);
+    color: #fff;
+}
+
+.toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.dark-mode .toggle-btn:hover {
+    background: rgba(80, 80, 80, 0.9);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
