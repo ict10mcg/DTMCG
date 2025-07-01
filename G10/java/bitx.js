@@ -45,6 +45,12 @@ async function updateClassData() {
         // Check if any class has an optional subject in this period
         const classKeys = ['classA', 'classB', 'classC', 'classD', 'classE', 'classF'];
         let optionalSubjects = new Set();
+
+    const nethindu  = ["int1", "int2", "int3"];
+    
+hideElementsByIds(nethindu);
+
+
         
         // First, check what subjects each class has for this period
         classKeys.forEach(classKey => {
