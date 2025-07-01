@@ -72,6 +72,7 @@ const teachers = {
   PDKW: { name: "P. D. Kariyawasam", subjects: "Optional-2", img: "Image/PDKW.png" },
   MMGG: { name: "M. M. Gothami Gunapali", subjects: "Optional-2", img: "Image/MMGG.png" },
   ABCP: { name: "B. A. C. Priyakalum", subjects: "Optional-2", img: "Image/ABCP.png" },
+   WN: { name: "Rev. M. Nandasiri", subjects: "Tamil", img: "Image/WN.png" },
 
   // Practical and Tutorials
   SCPR: { name: "D. G. S. R. Dodangoda", subjects: "Science Practical", img: "Image/SCPR.png" },
