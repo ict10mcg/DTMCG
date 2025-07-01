@@ -1,4 +1,17 @@
 // Dark mode toggle
+
+const elements=["classA", "classB", "classC", "classD", "classE", "classF",
+        "opta", "optb", "optc", "opta2", "optb2", "optc2" , "int1", "int2", "int3"]
+
+
+
+
+
+const classes=["classA", "classB", "classC", "classD", "classE", "classF",]
+const opt=["opta", "optb", "optc", "opta2", "optb2", "optc2"]
+const interval=["int1", "int2", "int3"]
+
+
 document.addEventListener("DOMContentLoaded", () => {
     const toggleBtn = document.getElementById("hi2");
 
@@ -82,9 +95,16 @@ async function updateClassData() {
         });
 
         if (currentPeriod.id === "period5") {
+        
+        hideElementsByIds(classes);
+        hideElementsByIds(opt);
+        showElementsByIds(interval,true);
             console.log("Interval period detected");
-            handleInterval();
-        } else if (optionalSubjects.size > 0) {
+            
+        } 
+        
+        else if (optionalSubjects.size > 0) {
+        hideElementsByIds(interval);
             console.log(`Optional subjects detected: ${Array.from(optionalSubjects).join(", ")}`);
             classKeys.forEach(classKey => {
                 handleClassPeriod(classKey, currentPeriod, teacherDataForDay, reliefDataForDay);
@@ -93,6 +113,10 @@ async function updateClassData() {
                 handleOptionalSubjects(optSubj, null, currentPeriod.id);
             });
         } else {
+        
+        showElementsByIds(classes,true);
+        hideElementsByIds(interval);
+        
             classKeys.forEach(classKey => {
                 handleClassPeriod(classKey, currentPeriod, teacherDataForDay, reliefDataForDay);
             });
@@ -100,6 +124,19 @@ async function updateClassData() {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 function handleClassPeriod(classKey, period, teacherDataForDay, reliefDataForDay) {
@@ -110,6 +147,10 @@ function handleClassPeriod(classKey, period, teacherDataForDay, reliefDataForDay
     const nameId = `name${classKey.charAt(5).toUpperCase()}`;
     const subjectId = `subject${classKey.charAt(5).toUpperCase()}`;
 
+
+    hideElementsByIds(interval);
+    
+    
     if (teacherId && teachers[teacherId]) {
         const teacher = teachers[teacherId];
         loadTeacherImage(teacher, imgId, nameId, subjectId);
@@ -139,57 +180,32 @@ function setReliefTeacher(imgId, nameId, subjectId) {
     document.getElementById(subjectId).textContent = "Relief";
 }
 
-/**
- * Handles the interval period (period5) by hiding all class and optional subject elements,
- * and showing only the interval elements.
- */
-function handleInterval() {
-    // IDs of class and optional subject elements to hide during interval
-    const classesToHide = [
-        "classA", "classB", "classC", "classD", "classE", "classF",
-        "opta", "optb", "optc", "opta2", "optb2", "optc2"
-    ];
-    hideElementsByIds(classesToHide);
 
-    // IDs of interval elements to show during interval
-    const intervalElementsToShow = ["int1", "int2", "int3"];
-    showElementsByIds(intervalElementsToShow);
-}
 
-/**
- * Adds the 'hide' class to elements with the given IDs to hide them.
- * @param {string[]} elementIds - Array of element IDs to hide.
- */
 function hideElementsByIds(elementIds) {
     elementIds.forEach(id => {
         const el = document.getElementById(id);
         if (el) {
-            console.log(`Hiding element with id: ${id}`);
             el.classList.add("hide");
-            el.classList.remove("square");
-            // Also hide all child elements inside this element
-            Array.from(el.children).forEach(child => {
-                child.classList.add("hide");
-            });
-        } else {
-            console.log(`Element with id: ${id} not found`);
+            // Also hide all child elements
+            
         }
     });
 }
 
-/**
- * Removes the 'hide' class and adds the 'square' class to elements with the given IDs to show them.
- * @param {string[]} elementIds - Array of element IDs to show.
- */
-function showElementsByIds(elementIds) {
+function showElementsByIds(elementIds, showChildren = false) {
     elementIds.forEach(id => {
         const el = document.getElementById(id);
         if (el) {
             el.classList.remove("hide");
-            el.classList.add("square");
-        }
+            // Also show all child elements if requested
+            
+            }
+        
     });
 }
+
+
 
 function setDefaultClassInfo(classKey, imgId, nameId, subjectId) {
     document.getElementById(imgId).src = "Image/nsch.png";
@@ -208,6 +224,11 @@ function handleOptionalSubjects(teacherId, classKey, periodId) {
     };
 
     if (optionDetails[teacherId]) {
+    
+    hideElementsByIds(interval);
+    showElementsByIds(classes);
+    
+    
         const { hideClasses, showClasses, details } = optionDetails[teacherId];
         hideClasses.forEach(classId => document.getElementById(classId).classList.add("hide"));
         showClasses.forEach((showClass, index) => {
