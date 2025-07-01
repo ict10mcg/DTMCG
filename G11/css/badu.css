@@ -116,8 +116,9 @@ body {
 }
 
 /* Toggle Button */
+
 .toggle-btn {
-    display:flex;
+    position: fixed;
     top: 20px;
     right: 20px;
     padding: 10px 20px;
@@ -133,7 +134,7 @@ body {
 }
 
 .btn {
-    display:flex;
+    
     top: 20px;
     right: 20px;
     padding: 10px 20px;
@@ -147,7 +148,6 @@ body {
     cursor: pointer;
     transition: all 0.3s;
 }
-
 
 .dark-mode .toggle-btn {
     background: rgba(50, 50, 50, 0.6);
