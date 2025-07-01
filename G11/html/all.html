@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Schedule</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            background: url('bg.png') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: "Poppins", sans-serif;
+            color: #333;
+            padding: 20px;
+        }
+
+        /* Heading */
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #000;
+            text-align: center;
+        }
+
+        /* Buttons */
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .buttons button {
+            padding: 12px 25px;
+            border: none;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #333;
+            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .buttons button:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Schedule Container */
+        .schedule {
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center content horizontally */
+            gap: 20px;
+        }
+
+        /* Schedule Cards */
+        .square, .opt {
+            width: 100%;
+            max-width: 600px; /* Limit card width for better readability */
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            border-radius: 12px;
+            text-align: center;
+            font-size: 1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .square:hover, .opt:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .square img, .opt img {
+            border-radius: 10px;
+            width: 100%;
+            max-width: 150px;
+            height: auto;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .square h3, .opt h3 {
+            margin: 10px 0;
+            font-size: 1.25rem;
+            color: #222;
+        }
+
+        .square p, .opt p {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .buttons button {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Weekly Schedule</h1>
+    <div class="buttons">
+        <button onclick="showSchedule('Monday')">Monday</button>
+        <button onclick="showSchedule('Tuesday')">Tuesday</button>
+        <button onclick="showSchedule('Wednesday')">Wednesday</button>
+        <button onclick="showSchedule('Thursday')">Thursday</button>
+        <button onclick="showSchedule('Friday')">Friday</button>
+    </div>
+    <div class="schedule" id="schedule"></div>
+
+    <script src="bot.js"></script>
+    <script src="data.js"></script>
+    <script>
+        function showSchedule(day) {
+            const scheduleDiv = document.getElementById("schedule");
+            scheduleDiv.innerHTML = `<h2 style="color: #000; margin-bottom: 20px; text-align: center;">${day}</h2>`;
+            const dayData = teacherDataByDay[day];
+            
+            if (!dayData) {
+                scheduleDiv.innerHTML += "<p>No data available</p>";
+                return;
+            }
+            
+            for (const className in dayData) {
+                scheduleDiv.innerHTML += `<h3 style="color: #000; text-align: center;">${className}</h3>`;
+                const periods = dayData[className];
+                
+                for (const period in periods) {
+                    const teacherCode = periods[period];
+                    if (teacherCode) {
+                        if (/^OPT[123][AB]$/.test(teacherCode)) {
+                            scheduleDiv.innerHTML += `<div class='opt'><p>${period}: ${teacherCode}</p></div>`;
+                        } else if (teachers[teacherCode]) {
+                            const teacher = teachers[teacherCode];
+                            const imgSrc = teacher.img && teacher.img !== '' ? teacher.img : '/Image/No.jpg';
+                            scheduleDiv.innerHTML += `
+                                <div class="square">
+                                   
+                                    <h3>${teacher.name}</h3>
+                                    <p><strong>${teacher.subjects}</strong> (${period})</p>
+                                </div>
+                            `;
+                        } else {
+                            scheduleDiv.innerHTML += `<div class='square'><img src='/Images/No.png' alt="No Teacher"><p>${period}: No teacher assigned</p></div>`;
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
