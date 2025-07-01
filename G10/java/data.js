@@ -87,7 +87,7 @@ const teacherDataByDay = {
             period5: null,    // INTERVAL
             period6: "OPT2A",   // OPT2
             period7: "OPT2A",   // OPT2
-            period8: "WARM",  // Eng
+            period8: "WARW",  // Eng
             period9: "HLDP"   // TUTS
         },
         classC: {
