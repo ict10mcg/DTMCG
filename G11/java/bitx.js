@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-let simulatedIndex = 0;
+/*let simulatedIndex = 0;
 
 function switchToNextPeriod() {
     // Simulate time based on periodTimings
@@ -36,7 +36,7 @@ function switchToNextPeriod() {
 
     simulatedIndex++;
 }
-
+*/
 async function updateClassData() {
     const now = window.simulatedTime || new Date();
     const sriLankaTime = now.toLocaleString("en-US", { timeZone: "Asia/Colombo" });
