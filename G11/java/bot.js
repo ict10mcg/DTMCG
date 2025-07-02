@@ -1,7 +1,7 @@
 
     // Period timings (24-hour format, 5th is interval)
     const periodTimings = [
-    { start: "00:30", end: "07:49", id: "No School" },
+    { start: "00:30", end: "7:49", id: "No School" },
     { start: "7:50", end: "8:30", id: "period1" }, 
     { start: "8:30", end: "9:10", id: "period2" },
     { start: "9:10", end: "9:50", id: "period3" },
