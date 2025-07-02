@@ -177,8 +177,8 @@ const teacherDataByDay = {
             period5:null,
             period6:"NUWA",
             period7:"NUWA",
-            period8:"BDSE",
-            period9:"BDSE", // New period
+            period8:"HKAU",
+            period9:"HKAU", // New period
         },
         classE: {
             period1:"NPAM",
