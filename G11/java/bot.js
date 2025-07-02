@@ -65,6 +65,7 @@ const teachers = {
   MVHD: { name: "M. V. H. D. Gunasekara", subjects: "History", img: "Image/MVHD.PNG" },
   WARW: { name: "W. A. R. Wickramarachchi", subjects: "History, Tutriols History", img: "Image/WARW.PNG" },
   ASMA: { name: "A.S. Manoja", subjects: "History, Tutriols History", img: "Image/ASMA.PNG" },
+     UJTC: { name: "U.J.T. Chamari", subjects: "History", img: "Image/UJTC.PNG" },
 
   // Optional Subjects
   RDNR: { name: "R. D. N. Rathnayaka", subjects: "Optional 1", img: "Image/RDNR.PNG" },
