@@ -214,14 +214,62 @@ function setDefaultClassInfo(classKey, imgId, nameId, subjectId) {
 }
 
 function handleOptionalSubjects(teacherId, classKey, periodId) {
-    const optionDetails = {
-        "OPT1A": { hideClasses: ["classA", "classB", "classC"], showClasses: ["opta", "optb", "optc"], details: ['<br>K.L.U.Kumari<br>R.D.N.Rathnayaka<br>', 'OPT 1<br>R.D.N.Rathnayaka-<br>Rev. M.Nandasiri<br>', '<br>U.J.T. Chamari<br>M.V.H.D.gunasekara<br>'] },
-        "OPT1B": { hideClasses: ["classD", "classE", "classF"], showClasses: ["opta2", "optb2", "optc2"], details: ['<br>A.S.Manoja<br>R.D.N.Rathnayaka<br>', 'OPT 1<br>M.W.K.Liyange<br>P.G.P.W. Sewwandi<br>', '<br>K.L.U. Kumari<br>Rev. M.Nandasiri<br>U.G.R.Dilrukshi'] },
-        "OPT2A": { hideClasses: ["classA", "classB", "classC"], showClasses: ["opta", "optb", "optc"], details: ['<br>M.M. Gothami Gunapali<br>S.T. Indrani<br>', 'OPT 2<br>P.D. Kariyawasam<br>Nilmini Wewalwala<br>', '<br>B.A.C. Priyakalum<br>A.M. Ranasingha Adikari<br>Sandamali Ilesinghe'] },
-        "OPT2B": { hideClasses: ["classD", "classE", "classF"], showClasses: ["opta2", "optb2", "optc2"], details: ['<br>G.W. Chamara Rosan<br>M.M. Gothami Gunapali<br>', 'OPT 2<br>H.G. Mangalika<br>S.A. Nayana Preethi Kumari<br>', '<br>B.A.C. Priyakalum<br>A.M. Ranasingha Adikari<br>Nilmini Wewalwala'] },
-        "OPT3A": { hideClasses: ["classA", "classB", "classC"], showClasses: ["opta", "optb", "optc"], details: ['<br>M.W. Ajith<br>E.M.D.Dayarathna', 'OPT 3', '<br>M.Gunawardana<br>W.T.K. Kosali<br>'] },
-        "OPT3B": { hideClasses: ["classD", "classE", "classF"], showClasses: ["opta2", "optb2", "optc2"], details: ['<br>L.L.L.Sadamali Thilakarathane<br>W.H.G. Nishani<br>M.W. Ajith', 'OPT 3<br>M.W.Chamila<br>Y. Nishantha Kumara', '<br>N.L.P.N. Narasinghe<br>J.D.Samantha<br>W.T.K.Kosali'] }
-    };
+   const optionDetails = {
+  OPT1A: {
+    hideClasses: ["classA", "classB", "classC"],
+    showClasses: ["opta", "optb", "optc"],
+    details: [
+      "<br>K.L.U.Kumari<br>R.D.N.Rathnayaka<br>",
+      "OPT 1<br>R.D.N.Rathnayaka-<br>Rev. M.Nandasiri<br>",
+      "<br>U.J.T. Chamari<br>M.V.H.D.gunasekara<br>"
+    ]
+  },
+  OPT1B: {
+    hideClasses: ["classD", "classE", "classF"],
+    showClasses: ["opta2", "optb2", "optc2"],
+    details: [
+      "<br>A.S.Manoja<br>R.D.N.Rathnayaka<br>",
+      "OPT 1<br>M.W.K.Liyange<br>P.G.P.W. Sewwandi<br>",
+      "<br>K.L.U. Kumari<br>Rev. M.Nandasiri<br>U.G.R.Dilrukshi"
+    ]
+  },
+  OPT2A: {
+    hideClasses: ["classA", "classB", "classC"],
+    showClasses: ["opta", "optb", "optc"],
+    details: [
+      "<br>M.M. Gothami Gunapali<br>S.T. Indrani<br>",
+      "OPT 2<br>P.D. Kariyawasam<br>Nilmini Wewalwala<br>",
+      "<br>B.A.C. Priyakalum<br>A.M. Ranasingha Adikari<br>Sandamali Ilesinghe"
+    ]
+  },
+  OPT2B: {
+    hideClasses: ["classD", "classE", "classF"],
+    showClasses: ["opta2", "optb2", "optc2"],
+    details: [
+      "<br>G.W. Chamara Rosan<br>M.M. Gothami Gunapali<br>",
+      "OPT 2<br>H.G. Mangalika<br>S.A. Nayana Preethi Kumari<br>",
+      "<br>B.A.C. Priyakalum<br>A.M. Ranasingha Adikari<br>Nilmini Wewalwala"
+    ]
+  },
+  OPT3A: {
+    hideClasses: ["classA", "classB", "classC"],
+    showClasses: ["opta", "optb", "optc"],
+    details: [
+      "<br>M.W. Ajith<br>E.M.D.Dayarathna",
+      "OPT 3",
+      "<br>M.Gunawardana<br>W.T.K. Kosali<br>"
+    ]
+  },
+  OPT3B: {
+    hideClasses: ["classD", "classE", "classF"],
+    showClasses: ["opta2", "optb2", "optc2"],
+    details: [
+      "<br>L.L.L.Sadamali Thilakarathane<br>W.H.G. Nishani<br>M.W. Ajith",
+      "OPT 3<br>M.W.Chamila<br>Y. Nishantha Kumara",
+      "<br>N.L.P.N. Narasinghe<br>J.D.Samantha<br>W.T.K.Kosali"
+    ]
+  }
+};
 
     if (optionDetails[teacherId]) {
     
