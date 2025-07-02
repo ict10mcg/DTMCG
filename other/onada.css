@@ -71,7 +71,8 @@
         }
 
         .logo {
-         
+          width: 10px;
+          height:10px;
             border-radius: 50%;
             background: var(--accent-color);
             display: flex;
