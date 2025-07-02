@@ -219,17 +219,17 @@ function handleOptionalSubjects(teacherId, classKey, periodId) {
     hideClasses: ["classA", "classB", "classC"],
     showClasses: ["opta", "optb", "optc"],
     details: [
-      "<br>K.L.U.Kumari<br>R.D.N.Rathnayaka<br>",
-      "OPT 1<br>R.D.N.Rathnayaka-<br>Rev. M.Nandasiri<br>",
-      "<br>U.J.T. Chamari<br>M.V.H.D.gunasekara<br>"
+      "<br>K.L.U.Kumari <br>R.D.N.Rathnayaka<br>",
+      "OPT 1<br>Rev. M.Nandasiri -Tamil<br>",
+      "<br>U.J.T. Chamari - Geogrophy <br>M.V.H.D.gunasekara - Civic<br>"
     ]
   },
   OPT1B: {
     hideClasses: ["classD", "classE", "classF"],
     showClasses: ["opta2", "optb2", "optc2"],
     details: [
-      "<br>A.S.Manoja<br>R.D.N.Rathnayaka<br>",
-      "OPT 1<br>M.W.K.Liyange<br>P.G.P.W. Sewwandi<br>",
+      "<br>A.S.Manoja - Geography<br>R.D.N.Rathnayaka<br>",
+      "OPT 1<br>M.W.K.Liyange - Commerce<br>P.G.P.W. Sewwandi<br>",
       "<br>K.L.U. Kumari<br>Rev. M.Nandasiri<br>U.G.R.Dilrukshi"
     ]
   },
