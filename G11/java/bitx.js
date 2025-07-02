@@ -221,7 +221,7 @@ function handleOptionalSubjects(teacherId, classKey, periodId) {
     details: [
       "<br>K.L.U.Kumari <br>R.D.N.Rathnayaka<br>",
       "OPT 1<br>Rev. M.Nandasiri -Tamil<br>",
-      "<br>U.J.T. Chamari - Geogrophy <br>M.V.H.D.gunasekara - Civic<br>"
+      "<br>U.J.T. Chamari - Geogrophy <br>M.V.H.D.Gunasekara - Civics<br>"
     ]
   },
   OPT1B: {
