@@ -1,86 +1,86 @@
-
-    // Period timings (24-hour format, 5th is interval)
-    const periodTimings = [
-    { start: "00:30", end: "7:49", id: "No School" },
-    { start: "7:50", end: "8:30", id: "period1" }, 
-    { start: "8:30", end: "9:10", id: "period2" },
-    { start: "9:10", end: "9:50", id: "period3" },
-    { start: "9:50", end: "10.00", id: "period4" },
-    { start: "10:00", end: "10:30", id: "period4" },
-
-
-    { start: "10:30", end: "10:50", id: "period5" }, // Interval
-
-
-    
-    { start: "10:50", end: "11:30", id: "period6" },
-    { start: "11:30", end: "12:10", id: "period7" },
-    { start: "12:10", end: "12:50", id: "period8" },
-    { start: "12:50", end: "13:30", id: "period9" },
-    { start: "13:30", end: "23:59", id: "No School" }
+// Period timings (24-hour format, 5th is interval)
+const periodTimings = [
+    { start: "00:30", end: "07:29", id: "No School" },
+    { start: "07:30", end: "08:10", id: "period1" },
+    { start: "08:11", end: "08:50", id: "period2" },
+    { start: "08:51", end: "09:30", id: "period3" },
+    { start: "09:31", end: "10:10", id: "period4" },
+    { start: "10:11", end: "10:30", id: "period5" }, // Interval
+    { start: "10:31", end: "11:10", id: "period6" },
+    { start: "11:11", end: "11:50", id: "period7" },
+    { start: "11:51", end: "12:30", id: "period8" },
+    { start: "12:31", end: "23:59", id: "No School" }
 ];
 
-
-    // Teacher details (ID => Name and Subject)
-   
- //namp na iaga
+// Teacher details (ID => Name, Subjects, Image)
 const teachers = {
-  // Sinhala
-  STIN: { name: "S. T. Indrani", subjects: "Sinhala, Optional-2", img: "Image/STIN.png" },//
-  STIN2: { name: "S. T. Indrani", subjects: "Tutorials Sinhala", img: "Image/STIN.PNG" },//
-  SANP: { name: "S. A. Nayana Preethi Kumari", subjects: "Sinhala", img: "Image/SANP.png" },//
-  SWM: { name: "S. W. M. Krishantha", subjects: "Sinhala, Tutorials Sinhala", img: "Image/SWM.PNG" },
-  NUWA: { name: "G. H. N. Chathuranga", subjects: "Sinhala", img: "Image/NUWA.PNG" },//
-  MDMU: { name: "M.D.M.U. Pushpakumara", subjects: "Sinhala", img: "Image/MDMU.PNG" },
-  YASK: { name: "Y.A.S.K. Wijerathna", subjects: "Sinhala", img: "Image/YASK.PNG" },
+  // Main Subjects Teachers
+  "170": { name: "Mrs. C. Kumara Nishantha", subjects: "Sinhala", img: "Image/170.PNG" },
+  "201": { name: "Mr. Chathuranga G. H. N.", subjects: "Sinhala", img: "Image/201.PNG" },
+  "61":  { name: "Mrs. Indrani S. T.", subjects: "Sinhala", img: "Image/61.PNG" },
+  "121": { name: "Mr. Weerarathna Y. R. S. K.", subjects: "Sinhala", img: "Image/121.PNG" },
+  "95":  { name: "Mrs. Pushpakumari Udeni", subjects: "Sinhala", img: "Image/95.PNG" },
+  "55":  { name: "Mrs. Kusumalatha R. P.", subjects: "Religion", img: "Image/55.PNG" },
+  "190": { name: "Rev. Sobitha A.", subjects: "Religion", img: "Image/190.PNG" },
+  "157": { name: "Hinatigala Dinesh", subjects: "Buddhism", img: "Image/157.PNG" },
+  "106": { name: "Mrs. Prabodini R. K. G. B.", subjects: "Science", img: "Image/106.PNG" },
+  "54":  { name: "Mrs. Champika Darshi", subjects: "Science", img: "Image/54.PNG" },
+  "130": { name: "Mrs. Upeksha Gayathri", subjects: "Science", img: "Image/130.PNG" },
+  "63":  { name: "Mr. Gamage Iresh", subjects: "Science", img: "Image/63.PNG" },
+  "92":  { name: "Mr. Nishantha Rasika", subjects: "Mathematics", img: "Image/92.PNG" },
+  "186": { name: "L. A. Madumi Shashika", subjects: "Mathematics", img: "Image/186.PNG" },
+  "136": { name: "Mr. Chathulakkahana Ditipa", subjects: "Mathematics", img: "Image/136.PNG" },
+  "29":  { name: "Mr. Udara Nawarathna", subjects: "Mathematics", img: "Image/29.PNG" },
+  "69":  { name: "Mrs. Iresha Sanjeewani", subjects: "Mathematics", img: "Image/69.PNG" },
+  "131": { name: "Mrs. Udayangi Amali", subjects: "Mathematics", img: "Image/131.PNG" },
+  "59":  { name: "Mrs. Lamahewa Bimba", subjects: "Mathematics", img: "Image/59.PNG" },
+  "53":  { name: "Mrs. Senanayaka Badra", subjects: "Mathematics", img: "Image/53.PNG" },
+  "75":  { name: "Mr. Mendis Janaka", subjects: "English", img: "Image/75.PNG" },
+  "163": { name: "Mrs. Nilanga Siriwardana", subjects: "English", img: "Image/163.PNG" },
+  "85":  { name: "Mr. Jagath Samarakoon", subjects: "English", img: "Image/85.PNG" },
+  "107": { name: "Mr. Darshana Yasar", subjects: "English", img: "Image/107.PNG" },
+  "60":  { name: "Mr. Gunasekara M. V. H. D.", subjects: "History", img: "Image/60.PNG" },
+  "109": { name: "Mr. W. A. R. Wickramarachchi", subjects: "History", img: "Image/109.PNG" },
+  "90":  { name: "Mr. Nallaperuma K. H.", subjects: "History", img: "Image/90.PNG" },
 
-  // English
-  IUG: { name: "I. U. Godagama", subjects: "English", img: "Image/IUG.PNG" },
-  SDJP: { name: "S. D. R. J. P. Samarakoon", subjects: "English", img: "Image/SDJP.PNG" },
-  SMYD: { name: "S. M. Y. Darshana", subjects: "English", img: "Image/SMYD.PNG" },
-  HRNG: { name: "H.R.N. Gayantha", subjects: "English", img: "Image/HRNG.PNG" },
+  // OPTION 01 Teachers
+  "62":  { name: "Mrs. Chamari Thilini", subjects: "Geography / Tamil", img: "Image/62.PNG" },
+  "84":  { name: "Mrs. Dilrukshi R.", subjects: "Civics", img: "Image/84.PNG" },
+  "120": { name: "Rev. Mapalagama Nandasiri", subjects: "Tamil", img: "Image/120.PNG" },
+  "74":  { name: "Mrs. Kumari K. L. V.", subjects: "Commerce", img: "Image/74.PNG" },
+  "181": { name: "Mr. Weerarathna Y. J. / Y. S.", subjects: "Commerce", img: "Image/181.PNG" },
+  "161": { name: "Mr. Weerarathna Y. S.", subjects: "Commerce", img: "Image/161.PNG" },
+  "119": { name: "Mr. Paranavithana Udayakumara", subjects: "Commerce", img: "Image/119.PNG" },
+  "68":  { name: "Mrs. Dilani Thusha M.", subjects: "Commerce", img: "Image/68.PNG" },
+  "86":  { name: "Mrs. Sewwandi G.", subjects: "Geography", img: "Image/86.PNG" },
+  "08":  { name: "Mrs. Rathnayaka Niluka", subjects: "Japanese", img: "Image/08.PNG" },
+  "105": { name: "Mrs. Kahaduwa Nisha", subjects: "German", img: "Image/105.PNG" },
+  "145": { name: "Miss. Sandeepani Kasuni", subjects: "Option Subject", img: "Image/145.PNG" },
+  "171": { name: "Mrs. Weerasena O. W. D. D.", subjects: "Home Science", img: "Image/171.PNG" },
+  "27":  { name: "Mrs. Priyangika Nirosha", subjects: "Option Subject", img: "Image/27.PNG" },
 
-  // Mathematics
-  MKRC: { name: "M. K. Rasika Nishantha", subjects: "Mathematics", img: "Image/MKRC.PNG" },
-  HKAU: { name: "H. K. A. Udayangi", subjects: "Mathematics", img: "Image/HKAU.PNG" },
-  GHDC: { name: "T. H. D. Chathulakkana", subjects: "Mathematics", img: "Image/GHDC.PNG" },
-  BPLA: { name: "B. P. Lamahewa", subjects: "Mathematics", img: "Image/BPLA.png" },
-  BDSE: { name: "B. D. Senanayeka", subjects: "Mathematics", img: "Image/BDSE.PNG" },
-  GISA: { name: "G. Iresha Sanjeewani", subjects: "Mathematics", img: "Image/GISA.PNG" },
+  // OPTION 02 Teachers
+  "123": { name: "Mr. Samantha J. D.", subjects: "Dancing", img: "Image/123.PNG" },
+  "23":  { name: "Mr. Chamara Roshan", subjects: "Western Music", img: "Image/23.PNG" },
+  "139": { name: "Mrs. Ilesinghe Sandamali", subjects: "Eastern Music", img: "Image/139.PNG" },
+  "118": { name: "Mr. Godagama Uditha", subjects: "English Literature", img: "Image/118.PNG" },
+  "14":  { name: "Mr. Adikari A. M.", subjects: "Drama", img: "Image/14.PNG" },
+  "162": { name: "Mr. Greston Kumara", subjects: "Art", img: "Image/162.PNG" },
+  "56":  { name: "Mrs. Amani Liyanapathirana", subjects: "Art", img: "Image/56.PNG" },
+  "100": { name: "Mrs. Himali Athukorala", subjects: "Sinhala Literature", img: "Image/100.PNG" },
+  "177": { name: "Mrs. Gayashini D. J. N.", subjects: "Western Music", img: "Image/177.PNG" },
 
-  // Buddhism
-  KSRI: { name: "K. Sirisumana", subjects: "Buddhism, Buddhism Tutorial Sciences", img: "Image/KSRI.png" },
-  MACH: { name: "Makumbura Chandraloka", subjects: "Buddhism", img: "Image/MACH.png" },
-  DGSR: { name: "D. G. S. R. Dodangoda", subjects: "Buddhism, Science Practical", img: "Image/DGSR.PNG" },
-
-  // Science
-  SCI: { name: "D. G. S. R. Dodangoda", subjects: "Science", img: "Image/SCI.PNG" },
-  NPAM: { name: "N. P. Amila Chaturika", subjects: "Science", img: "Image/NPAM.png" },
-  WHG: { name: "W. H. G. Nishani", subjects: "Science", img: "Image/WHG.png" },
-  HLDP: { name: "H. L. D. P. Champika", subjects: "Science, Tutorial Sciences", img: "Image/HLDP.PNG" },
-  IAGA: { name: "I.A. Gamage", subjects: "Science, Tutorial Sciences", img: "Image/IAGA.PNG" },
-
-  // History
-  KHNL: { name: "K. H. Nallaperuma", subjects: "History, Tutriols History", img: "Image/KHNL.PNG" },
-  MVHD: { name: "M. V. H. D. Gunasekara", subjects: "History", img: "Image/MVHD.PNG" },
-  WARW: { name: "W. A. R. Wickramarachchi", subjects: "History, Tutriols History", img: "Image/WARW.PNG" },
-  ASMA: { name: "A.S. Manoja", subjects: "History, Tutriols History", img: "Image/ASMA.PNG" },
-     UJTC: { name: "U.J.T. Chamari", subjects: "History", img: "Image/UJTC.PNG" },
-
-  // Optional Subjects
-  RDNR: { name: "R. D. N. Rathnayaka", subjects: "Optional 1", img: "Image/RDNR.PNG" },
-  MWA: { name: "M. W. Ajith", subjects: "Optional-3", img: "Image/MWA.PNG" },
-  WTKK: { name: "W. T. K. Koshali", subjects: "Optional-3", img: "Image/WTKK.PNG" },
-  AMRA: { name: "A. M. Ranasingha Adikari", subjects: "Optional-2", img: "Image/AMRA.PNG" },
-  NTWE: { name: "Nilmini Wewalwala", subjects: "Optional-2", img: "Image/NTWE.PNG" },
-  PDKW: { name: "P. D. Kariyawasam", subjects: "Optional-2", img: "Image/PDKW.PNG" },
-  MMGG: { name: "M. M. Gothami Gunapali", subjects: "Optional-2", img: "Image/MMGG.PNG" },
-  ABCP: { name: "B. A. C. Priyakalum", subjects: "Optional-2", img: "Image/ABCP.PNG" },
-
-  // Practical and Tutorials
-  SCPR: { name: "D. G. S. R. Dodangoda", subjects: "Science Practical", img: "Image/SCPR.PNG" },
-  LAB1: { name: "Lab1", subjects: "Science Practical", img: "Image/LAB1.PNG" },
-  TUTS: { name: "H. L. D. P. Champika", subjects: "Tutorial Sciences", img: "Image/TUTS.PNG" },
-  TUTH: { name: "M. V. H. D. Gunasekara", subjects: "Tutriols History", img: "Image/TUTH.PNG" },
-  TUSI: { name: "S. T. Indrani", subjects: "Tutorials Sinhala", img: "Image/TUSI.PNG" }
+  // OPTION 03 Teachers
+  "37":  { name: "Mr. Jayarathna Dinesh", subjects: "ICT", img: "Image/37.PNG" },
+  "49":  { name: "Mr. Munasinghe Harischandra", subjects: "Health", img: "Image/49.PNG" },
+  "64":  { name: "Mr. Sanjeewa Ishara", subjects: "ICT", img: "Image/64.PNG" },
+  "124": { name: "Mrs. Narasinghe Nisali", subjects: "ICT", img: "Image/124.PNG" },
+  "127": { name: "Mr. Sampath K. D. I.", subjects: "Technical / ICT", img: "Image/127.PNG" },
+  "96":  { name: "Mr. Gunawardhana Mahesh", subjects: "Agriculture & Food Tech", img: "Image/96.PNG" },
+  "126": { name: "Mrs. Hemali Vithanage", subjects: "Health", img: "Image/126.PNG" },
+  "78":  { name: "Mrs. Nishani G.", subjects: "Aqua Science / Science", img: "Image/78.PNG" },
+  "208": { name: "Miss Wasana Kumari Savini", subjects: "Home Science", img: "Image/208.PNG" },
+  "MK":  { name: "Mr. Kalansuriya Malith Chanaka", subjects: "Health", img: "Image/MK.PNG" },
+  "72":  { name: "Mrs. Thilakorathna Sandamalee", subjects: "Media", img: "Image/72.PNG" },
+  "166": { name: "Mrs. Kumaragiri P. M. N. S.", subjects: "Agriculture", img: "Image/166.PNG" }
 };

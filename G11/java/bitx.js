@@ -62,7 +62,7 @@ async function updateClassData() {
     const sriLankaDate = new Date(sriLankaTime);
 
     const currentDay = sriLankaDate.toLocaleDateString("en-US", { weekday: "long" });
-    const currentTime = sriLankaDate.getHours() + ":" + sriLankaDate.getMinutes().toString().padStart(2, "0");
+    const currentTime = sriLankaDate.getHours().toString().padStart(2, "0") + ":" + sriLankaDate.getMinutes().toString().padStart(2, "0");
 
     document.getElementById("Neth").textContent = currentTime;
     document.getElementById("This").textContent = currentDay;
@@ -89,8 +89,10 @@ async function updateClassData() {
             const teacherId = reliefTeacherId || teacherDataForDay[classKey]?.[currentPeriod.id];
             console.log(`${classKey} - ${currentPeriod.id}: ${teacherId}`);
 
-            if (teacherId && teacherId.startsWith("OPT")) {
-                optionalSubjects.add(teacherId);
+            if (teacherId && /^OP\d+$/.test(teacherId)) {
+                const optNum = parseInt(teacherId.replace("OP", ""), 10);
+                const groupSuffix = ["classA", "classB", "classC"].includes(classKey) ? "A" : "B";
+                optionalSubjects.add(`OPT${optNum}${groupSuffix}`);
             }
         });
 
