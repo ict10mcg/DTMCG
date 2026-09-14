@@ -1,6 +1,6 @@
 const teacherDataByDay = {
     Monday: {
-        classA: { period1: "92 / 186", period2: "170", period3: "62 / 84 / 120 / 74 / 181 / 119 / 86 / 68", period4: "62 / 84 / 120 / 74 / 181 / 119 / 86 / 68", period5: null, period6: "37 / MK / 49 / 127 / 64 / 124 / 151", period7: "106", period8: "75", period9: "60" },
+        classA: { period1: "92", period2: "170", period3: "62 / 84 / 120 / 74 / 181 / 119 / 86 / 68", period4: "62 / 84 / 120 / 74 / 181 / 119 / 86 / 68", period5: null, period6: "37 / MK / 49 / 127 / 64 / 124 / 151", period7: "106", period8: "75", period9: "60" },
         classB: { period1: "54", period2: "54", period3: "62 / 84 / 120 / 74 / 181 / 119 / 86 / 68", period4: "62 / 84 / 120 / 74 / 181 / 119 / 86 / 68", period5: null, period6: "37 / MK / 49 / 127 / 64 / 124 / 151", period7: "136 / 187", period8: "61", period9: "75" },
         classC: { period1: "85", period2: "90", period3: "62 / 84 / 120 / 74 / 181 / 119 / 86 / 68", period4: "62 / 84 / 120 / 74 / 181 / 119 / 86 / 68", period5: null, period6: "37 / MK / 49 / 127 / 64 / 124 / 151", period7: "29", period8: "29", period9: "201" },
         classD: { period1: "163", period2: "201", period3: "201", period4: "90", period5: null, period6: "130", period7: "69", period8: "169" },
